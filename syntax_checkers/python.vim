@@ -58,7 +58,7 @@ if g:syntastic_python_checker == 'pylint'
     function! SyntaxCheckers_python_GetLocList()
         let makeprg = 'pylint -f parseable -r n -i y ' .
             \ shellescape(expand('%')) .
-            \ ' \| grep -v " \[C0" ' .
+            \ ' \| grep -v " \[[CR]0" ' .
             \ ' \| sed -e "s/\[\([A-Z0-9]*\)[A-Za-z0-9,._ ]*\]/\[\1\]/g"'
         let errorformat = '%f:%l: [%t%n] %m,%-GNo config%m'
         let errors = SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
